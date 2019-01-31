@@ -2,9 +2,6 @@ set spelllang=en_us
 set t_Co=256
 set langmenu=en_US.UTF-8
 set number
-set background=dark
-" set background=white
-" colorscheme solarized8_flat
 
 " set spell
 
@@ -33,55 +30,28 @@ com! WP call WordProcessor()
 
 au BufEnter *.txt :WP
 
-if &term =~ "xterm\\|rxvt"
+"xterm\\|rxvt"
     " use an orange cursor in insert mode
-    let &t_SI = "\<Esc>]12;orange\x7"
+    let &t_SI = "\<Esc>]12;green\x7"
     " use a red cursor otherwise
-    let &t_EI = "\<Esc>]12;red\x7"
+    let &t_EI = "\<Esc>]12;yellow\x7"
     silent !echo -ne "\033]12;red\007"
     " reset cursor when vim exits
     autocmd VimLeave * silent !echo -ne "\033]112\007"
-endif
 
-" execute pathogen#infect()
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
 
-" let g:airline_theme='powerlineish'
-" let g:airline_theme='solarized'
-" let g:airline_theme='base16_solarized'
-" let g:airline_theme='base16_google'
-" let g:airline_theme='simple'
-" let g:airline_theme='light'
-
-let g:airline_symbols_ascii = 1
-      
-let g:airline_detect_modified=1
-let g:airline_detect_paste=1
-let g:airline_detect_crypt=1
-let g:airline_detect_spell=1
-let g:airline_detect_spelllang=1
-let g:airline_detect_iminsert=1
-let g:airline_inactive_collapse=1
-
-let g:airline#extensions#disable_rtp_load = 1
-
-let g:airline#extensions#default#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline#extensions#wordcount#enabled = 1
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#unicode#enabled = 1
-let g:airline_skip_empty_sections = 1
-
-" air-line
 let g:airline_powerline_fonts = 1
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:airline_extensions = []
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-let g:airline#extensions#default#layout = [
-      \ [ 'a', 'b', 'c' ],
-      \ [ 'x', 'y', 'z', 'error', 'warning' ]
-\ ]
+" let g:airline_theme='base16_google'
+" let g:airline_theme='base16_classic'
+" let g:airline_theme='base16_solarized'
+" let g:airline_theme='powerlineish'
+" let g:airline_theme='light'
+" let g:airline_theme='molokai'
+let g:airline_theme='base16_londontube'
+" let g:airline_theme='vim-sensible'
